@@ -1,0 +1,34 @@
+{
+    "name": "Input",
+    "maps": [
+        {
+            "name": "Actions",
+            "id": "178af9d5-dcb9-41a0-b977-0a7bd903072e",
+            "actions": [
+                {
+                    "name": "lowerLives",
+                    "type": "Button",
+                    "id": "b45f36fb-4660-4b97-9161-b1b24cd6f4b7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d44abf3d-76c6-462b-a75f-6129c8640450",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "lowerLives",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

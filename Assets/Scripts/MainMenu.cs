@@ -15,8 +15,16 @@ public class MainMenu : MonoBehaviour
 
     public void startgame()
     { mainMenu.SetActive(false);
-      gameOver.SetActive(true);
        
     }
 
+    public void GameOver() {
+        gameOver.SetActive(true);
+    }
+    
+    public void Restart()
+    {
+        gameOver.SetActive(false);
+        mainMenu.SetActive(true);
+    }
 }
