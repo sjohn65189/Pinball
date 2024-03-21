@@ -21,7 +21,8 @@ public class Ball : MonoBehaviour
     }
 
     public void Launch() {
-        rb.AddForce(Vector3.forward * launchForce, ForceMode.Impulse);
+        float actualLaunchForce = Random.Range(0.9f * launchForce, 1.1f * launchForce);
+        rb.AddForce(Vector3.forward * actualLaunchForce, ForceMode.Impulse);
     }
 
     public void Restart()
