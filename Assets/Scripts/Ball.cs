@@ -6,7 +6,7 @@ public class Ball : MonoBehaviour
 {
     public MainMenu menu;
     private Rigidbody rb;
-    public float launchforce;
+    public float launchForce;
     private int lives;
     private const int MAX_LIVES = 3;
     public Input input;
@@ -19,6 +19,11 @@ public class Ball : MonoBehaviour
         input = new();
         input.Enable();
     }
+
+    public void Launch() {
+        rb.AddForce(Vector3.forward * launchForce, ForceMode.Impulse);
+    }
+
     public void Restart()
     {
         transform.position = GameObject.FindGameObjectWithTag("BallStart").transform.position;

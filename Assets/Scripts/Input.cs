@@ -35,6 +35,15 @@ public partial class @Input: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LaunchBall"",
+                    ""type"": ""Button"",
+                    ""id"": ""e74c9a0a-608d-41e7-a36c-f31487335d8d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -48,6 +57,17 @@ public partial class @Input: IInputActionCollection2, IDisposable
                     ""action"": ""lowerLives"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dfe1646b-9c7c-4a30-9d44-0f8e53c72867"",
+                    ""path"": ""<Keyboard>/#(W)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LaunchBall"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -57,6 +77,7 @@ public partial class @Input: IInputActionCollection2, IDisposable
         // Actions
         m_Actions = asset.FindActionMap("Actions", throwIfNotFound: true);
         m_Actions_lowerLives = m_Actions.FindAction("lowerLives", throwIfNotFound: true);
+        m_Actions_LaunchBall = m_Actions.FindAction("LaunchBall", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -119,11 +140,13 @@ public partial class @Input: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Actions;
     private List<IActionsActions> m_ActionsActionsCallbackInterfaces = new List<IActionsActions>();
     private readonly InputAction m_Actions_lowerLives;
+    private readonly InputAction m_Actions_LaunchBall;
     public struct ActionsActions
     {
         private @Input m_Wrapper;
         public ActionsActions(@Input wrapper) { m_Wrapper = wrapper; }
         public InputAction @lowerLives => m_Wrapper.m_Actions_lowerLives;
+        public InputAction @LaunchBall => m_Wrapper.m_Actions_LaunchBall;
         public InputActionMap Get() { return m_Wrapper.m_Actions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -136,6 +159,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
             @lowerLives.started += instance.OnLowerLives;
             @lowerLives.performed += instance.OnLowerLives;
             @lowerLives.canceled += instance.OnLowerLives;
+            @LaunchBall.started += instance.OnLaunchBall;
+            @LaunchBall.performed += instance.OnLaunchBall;
+            @LaunchBall.canceled += instance.OnLaunchBall;
         }
 
         private void UnregisterCallbacks(IActionsActions instance)
@@ -143,6 +169,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
             @lowerLives.started -= instance.OnLowerLives;
             @lowerLives.performed -= instance.OnLowerLives;
             @lowerLives.canceled -= instance.OnLowerLives;
+            @LaunchBall.started -= instance.OnLaunchBall;
+            @LaunchBall.performed -= instance.OnLaunchBall;
+            @LaunchBall.canceled -= instance.OnLaunchBall;
         }
 
         public void RemoveCallbacks(IActionsActions instance)
@@ -163,5 +192,6 @@ public partial class @Input: IInputActionCollection2, IDisposable
     public interface IActionsActions
     {
         void OnLowerLives(InputAction.CallbackContext context);
+        void OnLaunchBall(InputAction.CallbackContext context);
     }
 }
