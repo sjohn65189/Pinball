@@ -41,10 +41,8 @@ public class Ball : MonoBehaviour
             menu.GameOver();
         }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        var bumper = collision.gameObject.GetComponent<Bumper>();
-        if (bumper != null) {
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.CompareTag("Bumper")) {
             Game.Instance.AddScore(10);
         }
     }
