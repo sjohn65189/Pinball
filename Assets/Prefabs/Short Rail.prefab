@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6330920088076460575}
   - component: {fileID: 8241578378782648443}
   m_Layer: 0
-  m_Name: Pill_Short_TiltLeft
+  m_Name: Short Rail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
