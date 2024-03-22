@@ -19,9 +19,10 @@ public class Score : MonoBehaviour
     {
         txt.text = currentScore.ToString();
     }
+
+
     public void Addscore(int amount)
     {
         currentScore += amount;
-
     }
 }

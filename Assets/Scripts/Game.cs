@@ -19,6 +19,8 @@ public class Game : MonoBehaviour
         Instance = this;
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
@@ -27,5 +29,10 @@ public class Game : MonoBehaviour
         {
             ball.Launch();
         }
+    }
+
+    public void AddScore(int amount)
+    {
+        score.AddScore(amount);
     }
 }

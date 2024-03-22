@@ -41,15 +41,13 @@ public class Ball : MonoBehaviour
             menu.GameOver();
         }
     }
-    /*
     private void OnCollisionEnter(Collision collision)
     {
         var bumper = collision.gameObject.GetComponent<Bumper>();
-        if (collision.gameObject.tag.StartsWith("Bumper"))
-        {
+        if (bumper != null) {
             Game.Instance.AddScore(10);
         }
-    }*/
+    }
     // Update is called once per frame
     void Update()
     {
