@@ -3,8 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum FlipperType
+{
+    Right,
+    Left,
+}
+
 public class Flipper : MonoBehaviour
 {
+    public FlipperType type;
     private Rigidbody r;
     public float force;
 
@@ -18,15 +25,13 @@ public class Flipper : MonoBehaviour
     void Update()
     {
         var input = Game.Instance.input;
-        if (input.Actions.FlipperLeft.WasPressedThisFrame())
+        if (input.Actions.FlipperLeft.WasPressedThisFrame() && type == FlipperType.Left)
         {
             Flip();
-            print("pressed");
         }
-        else if (input.Actions.FlipperRight.WasPressedThisFrame())
+        else if (input.Actions.FlipperRight.WasPressedThisFrame() && type == FlipperType.Right)
         {
             Flip();
-            print("pressed");
         }
 
     }
