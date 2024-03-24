@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum FlipperType
+public enum FlipperType 
 {
-    Right,
-    Left,
+    LEFT,
+    RIGHT,
 }
+
+[RequireComponent(typeof(Rigidbody)),
+RequireComponent(typeof(AudioSource))]
 
 public class Flipper : MonoBehaviour
 {
@@ -15,21 +18,24 @@ public class Flipper : MonoBehaviour
     private Rigidbody r;
     public float force;
 
+    private AudioSource audioSrc;
+
     // Start is called before the first frame update
     void Start()
     {
         r = GetComponent<Rigidbody>();
+        audioSrc = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         var input = Game.Instance.input;
-        if (input.Actions.FlipperLeft.WasPressedThisFrame() && type == FlipperType.Left)
+        if (input.Actions.FlipperLeft.WasPressedThisFrame() && type == FlipperType.LEFT)
         {
             Flip();
         }
-        else if (input.Actions.FlipperRight.WasPressedThisFrame() && type == FlipperType.Right)
+        else if (input.Actions.FlipperRight.WasPressedThisFrame() && type == FlipperType.RIGHT)
         {
             Flip();
         }
@@ -38,5 +44,6 @@ public class Flipper : MonoBehaviour
     public void Flip()
     {
         r.AddForce(Vector3.forward * force, ForceMode.Impulse);
+        audioSrc.Play();
     }
 }
