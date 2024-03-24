@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5693,7 +5693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  force: 35
+  force: 90
 --- !u!59 &1661843129
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -7409,7 +7409,7 @@ HingeJoint:
   m_GameObject: {fileID: 2053502601}
   m_ConnectedBody: {fileID: 0}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_Anchor: {x: 0.1, y: 0.5, z: 0.5}
+  m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 6.158364, y: -10.566326, z: -4.207102}
@@ -7428,8 +7428,8 @@ HingeJoint:
   m_ExtendedLimits: 0
   m_UseAcceleration: 0
   m_Limits:
-    min: 77.0119
-    max: 160.6899
+    min: 275.46872
+    max: 376.4147
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
@@ -7479,7 +7479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  force: 35
+  force: 90
 --- !u!1 &2057196507
 GameObject:
   m_ObjectHideFlags: 0
