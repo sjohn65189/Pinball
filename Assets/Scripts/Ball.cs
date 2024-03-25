@@ -40,6 +40,13 @@ public class Ball : MonoBehaviour
         {
             menu.GameOver();
         }
+
+        var target = other.gameObject.GetComponent<Target>();
+        if (target != null)
+        {
+            target.Hit();
+            Game.Instance.AddScore(20);
+        }
     }
     private void OnCollisionEnter(Collision collision) {
         var bumper = collision.gameObject.GetComponent<Bumper>();
