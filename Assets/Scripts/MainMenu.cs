@@ -11,21 +11,24 @@ public class MainMenu : MonoBehaviour
     {
         mainMenu.SetActive(true);
         gameOver.SetActive(false);
+        Game.Instance.input.Disable();
     }
 
     public void startgame()
     { 
         mainMenu.SetActive(false);
-       
+        Game.Instance.input.Enable();
+
     }
 
     public void GameOver() {
         gameOver.SetActive(true);
+        Game.Instance.input.Disable();
     }
     
     public void Restart()
     {
         gameOver.SetActive(false);
-        mainMenu.SetActive(true);
+        Game.Instance.input.Disable();
     }
 }
