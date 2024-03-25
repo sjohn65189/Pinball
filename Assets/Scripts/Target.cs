@@ -17,7 +17,8 @@ public class Target : MonoBehaviour
     { 
         
     }
-    public void Hit() {
+    public void Hit() 
+    {
         // play sound
         audioSrc.Play();
     }

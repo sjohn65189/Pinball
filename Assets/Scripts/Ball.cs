@@ -41,11 +41,12 @@ public class Ball : MonoBehaviour
             menu.GameOver();
         }
 
-        var target = other.gameObject.GetComponent<Target>();
-        if (target != null)
+
+        if (other.CompareTag(Consts.Tags.TARGET)) 
         {
+            var target = other.GetComponent<Target>();
             target.Hit();
-            Game.Instance.AddScore(20);
+            Game.Instance.AddScore(Consts.Points.HIT_TARGET);
         }
     }
     private void OnCollisionEnter(Collision collision) {
@@ -53,7 +54,7 @@ public class Ball : MonoBehaviour
         if (bumper != null) 
         {
             bumper.Bump();
-            Game.Instance.AddScore(10);
+            Game.Instance.AddScore(Consts.Points.HIT_BUMPER);
         }
     }
     // Update is called once per frame

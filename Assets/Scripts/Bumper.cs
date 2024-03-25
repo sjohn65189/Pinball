@@ -6,7 +6,6 @@ using UnityEngine;
 public class Bumper : MonoBehaviour
 {
     private AudioSource audioSrc;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +17,8 @@ public class Bumper : MonoBehaviour
     {
         
     }
-
     public void Bump() 
     {
-
         // play sound
         audioSrc.Play();
     }
