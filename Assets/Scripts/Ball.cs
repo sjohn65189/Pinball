@@ -8,8 +8,10 @@ public class Ball : MonoBehaviour
     private Rigidbody rb;
     public float launchForce;
     private int lives;
-    private const int MAX_LIVES = 3;
+    private const int MAX_LIVES = 4;
     public Input input;
+    public GameObject[] ballLives;
+    private bool canBeLaunched;      // flag to prevent launching multiple times
     
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,7 @@ public class Ball : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         input = new();
         input.Enable();
+        canBeLaunched = true;
     }
 
     public void Launch() {
@@ -33,17 +36,11 @@ public class Ball : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        transform.position = GameObject.FindGameObjectWithTag("BallStart").transform.position;
-        rb.velocity = Vector3.zero;
-        lives--;
-        if (lives < 0)
-        {
-            menu.GameOver();
-        }
-
-
-        if (other.CompareTag(Consts.Tags.TARGET)) 
-        {
+        // check the tag of what I collided with. If it is the ball end, play sound and reset ball
+        if (other.CompareTag(Consts.Tags.BALL_END)) {
+            other.gameObject.GetComponent<AudioSource>().Play();
+            ResetBall();
+        } else if (other.CompareTag(Consts.Tags.TARGET)) {
             var target = other.GetComponent<Target>();
             target.Hit();
             Game.Instance.AddScore(Consts.Points.HIT_TARGET);
@@ -67,6 +64,26 @@ public class Ball : MonoBehaviour
             {
                 menu.GameOver();
             }
+        }
+    }
+
+    public void ResetBall() 
+    {
+        // reset the ball's position and clear any lingering velocity
+        transform.position = GameObject.FindGameObjectWithTag(Consts.Tags.BALL_START).transform.position;
+        rb.velocity = Vector3.zero;
+
+        // decrement lives and update lives GUI
+        ballLives[MAX_LIVES - lives].SetActive(false);
+        lives--;
+
+        // show game over if no lives are left
+        if (lives <= 0) {
+            menu.GameOver();
+        }
+        // if not game over, allow the ball to be launched again
+        else {
+            canBeLaunched = true;
         }
     }
 }

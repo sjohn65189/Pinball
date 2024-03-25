@@ -21,5 +21,6 @@ public class Target : MonoBehaviour
     {
         // play sound
         audioSrc.Play();
+        print("played");
     }
 }

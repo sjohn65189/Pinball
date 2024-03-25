@@ -1521,6 +1521,11 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.7839498
       objectReference: {fileID: 0}
+    - target: {fileID: 885790103399970211, guid: 1c90d9ab442c0478988764ff6e3e736b,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3873325669709513163, guid: 1c90d9ab442c0478988764ff6e3e736b,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -9002,6 +9007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 256730429}
   launchForce: 20
+  ballLives: []
 --- !u!54 &2057196513
 Rigidbody:
   m_ObjectHideFlags: 0
