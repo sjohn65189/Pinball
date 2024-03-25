@@ -30,7 +30,7 @@ public class Ball : MonoBehaviour
 
     public void Restart()
     {
-        transform.position = GameObject.FindGameObjectWithTag("BallStart").transform.position;
+        transform.position = GameObject.FindGameObjectWithTag(Consts.Tags.BALL_START).transform.position;
         rb.velocity = Vector3.zero;
         lives = MAX_LIVES;
     }
