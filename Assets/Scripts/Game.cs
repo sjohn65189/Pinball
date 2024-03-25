@@ -22,14 +22,7 @@ public class Game : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
-    {
-        
-        if(input.Actions.LaunchBall.WasReleasedThisFrame())
-        {
-            ball.Launch();
-        }
-    }
+    void Update() { }
 
     public void AddScore(int amount)
     {

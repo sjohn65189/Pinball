@@ -31,33 +31,56 @@ public class Ball : MonoBehaviour
         rb.velocity = Vector3.zero;
         lives = MAX_LIVES;
     }
+
+    /**new life function resets ball position and decreases lives. activates game over screen if necessary.**/
+    public void NewLife() {
+        transform.position = GameObject.FindGameObjectWithTag("BallStart").transform.position;
+        rb.velocity = Vector3.zero;
+        lives--;
+        if (lives < 0) { menu.GameOver();  }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
 
         // check the tag of what I collided with. If it is the ball end, play sound and reset ball
         if (other.CompareTag(Consts.Tags.BALL_END)) {
             other.gameObject.GetComponent<AudioSource>().Play();
+            NewLife();
         }
 
+        //target trigger; add target score, and notify target that it has been triggered
         if (other.CompareTag(Consts.Tags.TARGET)) 
         {
             var target = other.GetComponent<Target>();
             target.Hit();
-//            Game.Instance.AddScore(Consts.Points.HIT_TARGET);
+            Game.Instance.AddScore(Consts.Points.HIT_TARGET);
         }
     }
-    private void OnCollisionEnter(Collision collision) {
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        //bumper collision; add bumper score, and notify bumper that ball collided
         var bumper = collision.gameObject.GetComponent<Bumper>();
-        if (bumper != null) 
-        {
+        if (bumper != null) {
             bumper.Bump();
-//            Game.Instance.AddScore(Consts.Points.HIT_BUMPER);
+            Game.Instance.AddScore(Consts.Points.HIT_BUMPER);
+        }
+
+        //flipper collision; add flipper score
+        var flipper = collision.gameObject.GetComponent<Flipper>();
+        if (flipper != null) {
+            Game.Instance.AddScore(Consts.Points.HIT_FLIPPER);
         }
     }
     // Update is called once per frame
     void Update()
     {
-        print(lives);
+
+        //if space key is pressed, launch the ball.
+        if (input.Actions.LaunchBall.WasReleasedThisFrame()) { Launch(); }
+
+        //if w key is pressed, lower lives
         if (input.Actions.lowerLives.WasPressedThisFrame()) {
             lives--;
             if (lives < 0)
