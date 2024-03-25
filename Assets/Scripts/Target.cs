@@ -21,6 +21,5 @@ public class Target : MonoBehaviour
     {
         // play sound
         audioSrc.Play();
-        Game.Instance.AddScore(Consts.Points.HIT_TARGET);
     }
 }
