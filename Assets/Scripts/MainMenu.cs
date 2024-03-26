@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
     public GameObject mainMenu;
     public GameObject gameOver;
     public GameObject gameHUD;
+    public GameObject options;
     public Game game;
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,7 @@ public class MainMenu : MonoBehaviour
         mainMenu.SetActive(true);
         gameOver.SetActive(false);
         gameHUD.SetActive(false);
+        options.SetActive(false);
         Game.Instance.input.Disable();
     }
 
@@ -39,4 +41,14 @@ public class MainMenu : MonoBehaviour
 
         Game.Instance.input.Enable();
     }
+    public void Settings()
+    {
+        mainMenu.SetActive(false);
+        options.SetActive(true);
+    }
+    public void Exit()
+    {
+        options.SetActive(false);
+        mainMenu.SetActive(true);
+    }    
 }
