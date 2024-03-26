@@ -33,6 +33,11 @@ public class Game : MonoBehaviour
         PlayerPrefs.SetInt(Consts.PlayerPrefs.HIGHSCORE, HScore);
     }
 
+    public void resetScore()
+    {
+        CScore = 0;
+    }
+
     public void AddScore(int amount)
     {
         CScore += amount;

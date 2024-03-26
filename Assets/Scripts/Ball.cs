@@ -32,6 +32,9 @@ public class Ball : MonoBehaviour
         lives = MAX_LIVES;
     }
 
+    public void ResetLife()
+    { lives = MAX_LIVES; }
+
     /**new life function resets ball position and decreases lives. activates game over screen if necessary.**/
     public void NewLife() {
         transform.position = GameObject.FindGameObjectWithTag("BallStart").transform.position;
