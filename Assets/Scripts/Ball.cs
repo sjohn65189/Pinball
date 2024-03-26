@@ -7,6 +7,7 @@ public class Ball : MonoBehaviour
 {
     public MainMenu menu;
     private Rigidbody rb;
+    public Door door;
     public float launchForce;
     private int lives;
     private const int MAX_LIVES = 3;
@@ -32,6 +33,7 @@ public class Ball : MonoBehaviour
     {
         transform.position = GameObject.FindGameObjectWithTag("BallStart").transform.position;
         rb.velocity = Vector3.zero;
+        door.OpenDoor();
     }
 
     /**new life function resets ball position and decreases lives. activates game over screen if necessary.**/
@@ -45,6 +47,7 @@ public class Ball : MonoBehaviour
             lives = MAX_LIVES;
         }
         canBeLaunched = true;
+        door.OpenDoor();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -55,6 +58,12 @@ public class Ball : MonoBehaviour
         {
             other.gameObject.GetComponent<AudioSource>().Play();
             NewLife();
+        }
+
+
+        if (other.CompareTag(Consts.Tags.DOOR_TRIGGER))
+        {
+            door.CloseDoor();
         }
 
         //target trigger; add target score, and notify target that it has been triggered
