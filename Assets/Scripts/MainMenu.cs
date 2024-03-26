@@ -7,7 +7,6 @@ public class MainMenu : MonoBehaviour
     public GameObject mainMenu;
     public GameObject gameOver;
     public GameObject gameHUD;
-    public Ball ball;
     public Game game;
     // Start is called before the first frame update
     void Start()
@@ -35,7 +34,6 @@ public class MainMenu : MonoBehaviour
     public void Restart()
     {
         gameOver.SetActive(false);
-        ball.ResetLife();
         game.resetScore();
         gameHUD.SetActive(true);
 

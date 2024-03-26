@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    [HideInInspector] public Input input;
+    [HideInInspector] public PinballInput input;
     public Ball ball;
 
 
@@ -18,7 +18,7 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        input = new Input();
+        input = new PinballInput();
         input.Enable();
         Instance = this;
     }
