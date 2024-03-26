@@ -14,12 +14,15 @@ public class Ball : MonoBehaviour
     public Input input;
     private bool canBeLaunched;
 
+    private AudioSource audioSrc;
+
     // Start is called before the first frame update
     void Start()
     {
         lives = MAX_LIVES;
         rb = GetComponent<Rigidbody>();
         canBeLaunched = true;
+        audioSrc = GetComponent<AudioSource>();
 
     }
 
@@ -27,6 +30,8 @@ public class Ball : MonoBehaviour
     {
         float actualLaunchForce = Random.Range(0.9f * launchForce, 1.1f * launchForce);
         rb.AddForce(Vector3.forward * actualLaunchForce, ForceMode.Impulse);
+        audioSrc.Play();
+
     }
 
     public void Restart()
