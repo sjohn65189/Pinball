@@ -12,6 +12,8 @@ public static class Consts {
         public const string BALL_END = "BallEnd";
         public const string TARGET = "Target";
         public const string FLIPPER = "Flipper";
+        public const string DOOR_TRIGGER = "DoorTrigger";
+        public const string DOOR = "Door";
 //        public const string RAMP_START = "RampStart";
 //        public const string RAMP_HOLE = "RampHole";
     }
