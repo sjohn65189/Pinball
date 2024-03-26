@@ -13223,7 +13223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 256730429}
-  launchForce: 23
+  launchForce: 24
 --- !u!4 &2102649164 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8502538011956780787, guid: 18b12c04b45ca43df978012336227f44,
