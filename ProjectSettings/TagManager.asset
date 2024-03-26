@@ -8,6 +8,8 @@ TagManager:
   - BallEnd
   - BallStart
   - Flipper
+  - Door
+  - DoorTrigger
   layers:
   - Default
   - TransparentFX
