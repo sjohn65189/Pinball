@@ -32,8 +32,6 @@ public static class Consts {
         public const int HIT_BUMPER = 100;
         public const int HIT_FLIPPER = 10;
         public const int HIT_TARGET = 200;
-//        public const int HIT_SCORE_CIRCLE_NORMAL = 150;
-//        public const int HIT_SCORE_CIRCLE_ACTIVE = 500;
     }
 }
 
